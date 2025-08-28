@@ -7,9 +7,9 @@
 }
 
 :root {
-    --primary-color: #04610c;
-    --secondary-color: #07ca07;
-    --accent-color: #05ad13;
+    --primary-color: #04a111;
+    --secondary-color: #066606;
+    --accent-color: #08e61a;
     --light-color: #ffffff;
     --dark-color: #555353;
     --gray-color: #34383b;
@@ -135,28 +135,85 @@ nav ul li a:hover {
     color: var(--dark-color);
 }
 
-/* Banner */
-.banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('blob:https://web.whatsapp.com/8fdc8fbe-3a15-4f4b-ae78-227050fda4d6') no-repeat center center/cover;
+/* Carrossel */
+.carrossel {
+    position: relative;
+    width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.carrossel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carrossel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.carrossel-slide.active {
+    opacity: 1;
+}
+
+.carrossel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carrossel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: var(--white);
-    margin-top: 70px;
+    width: 80%;
+    max-width: 800px;
 }
 
-.banner h2 {
+.carrossel-content h2 {
     font-size: 3rem;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.banner p {
+.carrossel-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.carrossel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carrossel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrossel-indicator.active {
+    background-color: var(--white);
 }
 
 /* Sobre */
@@ -336,7 +393,7 @@ nav ul li a:hover {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     color: var(--white);
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -440,7 +497,7 @@ footer {
 }
 
 .newsletter-form button:hover {
-    background-color: #e67300;
+    background-color: #036903;
 }
 
 .footer-bottom {
@@ -462,6 +519,10 @@ footer {
     
     .sobre-image, .sobre-text, .contato-info, .contato-form {
         width: 100%;
+    }
+    
+    .carrossel-content h2 {
+        font-size: 2.5rem;
     }
 }
 
@@ -492,18 +553,18 @@ footer {
         display: block;
     }
     
-    .banner h2 {
-        font-size: 2.5rem;
+    .carrossel-content h2 {
+        font-size: 2rem;
+    }
+    
+    .carrossel-content p {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 576px) {
-    .banner h2 {
-        font-size: 2rem;
-    }
-    
-    .banner p {
-        font-size: 1rem;
+    .carrossel-content h2 {
+        font-size: 1.8rem;
     }
     
     .section-title {
@@ -513,4 +574,18 @@ footer {
     .produtos-grid, .servicos-lista {
         grid-template-columns: 1fr;
     }
+    
+    .carrossel-indicators {
+        bottom: 10px;
+    }
+    
+    .carrossel-indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.logo{
+    width:180px ;
+    height: 80px;
 }
