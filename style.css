@@ -1,3 +1,4 @@
+
 /* Reset e Estilos Globais */
 * {
     margin: 0;
@@ -275,7 +276,7 @@ nav ul li a:hover {
 }
 
 .produto-card {
-    background-color: var(--light-color);
+    background-color: rgb(240, 232, 232);
     padding: 30px;
     border-radius: 10px;
     text-align: center;
